@@ -1,0 +1,13 @@
+{
+  "name": "file-depot",
+  "version": "1.0.0",
+  "description": "store files on s3, GCS, or local file system and reference them via prisma models",
+  "main": "index.ts",
+  "author": "Jonathan Fleckenstein",
+  "license": "MIT",
+  "dependencies": {
+    "@blitzjs/installer": "^0.42.4",
+    "@types/jscodeshift": "0.11.2",
+    "jscodeshift": "0.13.0"
+  }
+}
