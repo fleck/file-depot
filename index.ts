@@ -1,4 +1,5 @@
 import { RecipeBuilder } from "@blitzjs/installer";
+import { join } from "path";
 
 export default RecipeBuilder()
   .setName("file depot")
@@ -25,5 +26,13 @@ export default RecipeBuilder()
       { name: "@types/content-disposition", version: "0.5.3" },
       { name: "@types/sharp", version: "0.28.3" },
     ],
+  })
+  .addNewFilesStep({
+    stepId: "addApi",
+    stepName: "Add API folders",
+    explanation: ``,
+    targetDirectory: "./app/api",
+    templatePath: join(__dirname, "templates", "api"),
+    templateValues: {},
   })
   .build();
