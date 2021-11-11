@@ -35,4 +35,12 @@ export default RecipeBuilder()
     templatePath: join(__dirname, "templates", "api"),
     templateValues: {},
   })
+  .addNewFilesStep({
+    stepId: "addFileUtils",
+    stepName: "Add File utils",
+    explanation: ``,
+    targetDirectory: "./app/file",
+    templatePath: join(__dirname, "templates", "file"),
+    templateValues: {},
+  })
   .build();
