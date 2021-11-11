@@ -1,10 +1,10 @@
-import { disk } from "app/file"
+import { disk } from "app/file/disk"
 import { BlitzApiRequest, BlitzApiResponse, NotFoundError } from "blitz"
 import db from "db"
 import createContentDisposition from "content-disposition"
 import path from "path"
 import { localPath } from "app/api/files/create"
-import { validTransformKey, transformFunctions } from "../../../../../transforms"
+import { validTransformKey, transformFunctions } from "../../../../../file/transforms"
 
 export const variantPath = (hash: string, variation: string) =>
   path.join("variant", hash.substring(0, 2), hash.substring(2, 4), variation)

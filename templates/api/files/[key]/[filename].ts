@@ -1,4 +1,4 @@
-import { disk } from "app/file"
+import { disk } from "app/file/disk"
 import { BlitzApiRequest, BlitzApiResponse, NotFoundError } from "blitz"
 
 import db from "db"
