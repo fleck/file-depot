@@ -68,6 +68,97 @@ export default RecipeBuilder()
               },
             ],
           },
+          {
+            type: "field",
+            name: "key",
+            fieldType: "String",
+            attributes: [
+              { type: "attribute", kind: "field", name: "unique", group: "" },
+            ],
+          },
+          {
+            type: "field",
+            name: "hash",
+            fieldType: "String",
+            attributes: [
+              { type: "attribute", kind: "field", name: "unique", group: "" },
+            ],
+          },
+          {
+            type: "field",
+            name: "name",
+            fieldType: "String",
+          },
+          {
+            type: "field",
+            name: "description",
+            fieldType: "String",
+            attributes: [
+              {
+                type: "attribute",
+                kind: "field",
+                name: "default",
+                group: "",
+                args: [{ type: "attributeArgument", value: '""' }],
+              },
+            ],
+          },
+          {
+            type: "field",
+            name: "contentType",
+            fieldType: "String",
+          },
+          {
+            type: "field",
+            name: "metadata",
+            fieldType: "Json",
+            attributes: [
+              {
+                type: "attribute",
+                kind: "field",
+                name: "default",
+                group: "",
+                args: [{ type: "attributeArgument", value: '"{}"' }],
+              },
+            ],
+          },
+          {
+            type: "field",
+            name: "byteSize",
+            fieldType: "Int",
+          },
+          {
+            type: "field",
+            name: "serviceName",
+            fieldType: "String",
+          },
+          {
+            type: "field",
+            name: "createdAt",
+            fieldType: "DateTime",
+            attributes: [
+              {
+                type: "attribute",
+                kind: "field",
+                name: "default",
+                group: "",
+                args: [{ type: "attributeArgument", value: "now()" }],
+              },
+            ],
+          },
+          {
+            type: "field",
+            name: "updatedAt",
+            fieldType: "DateTime",
+            attributes: [
+              {
+                type: "attribute",
+                kind: "field",
+                name: "updatedAt",
+                group: "",
+              },
+            ],
+          },
         ],
       });
     },
