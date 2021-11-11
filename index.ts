@@ -1,4 +1,4 @@
-import { RecipeBuilder } from "@blitzjs/installer";
+import { addPrismaModel, paths, RecipeBuilder } from "@blitzjs/installer";
 import { join } from "path";
 
 export default RecipeBuilder()
@@ -42,5 +42,34 @@ export default RecipeBuilder()
     targetDirectory: "./app/file",
     templatePath: join(__dirname, "templates", "file"),
     templateValues: {},
+  })
+  .addTransformFilesStep({
+    stepId: "addSchema",
+    stepName: "create File model",
+    explanation: ``,
+    singleFileSearch: paths.prismaSchema(),
+    transformPlain(source) {
+      return addPrismaModel(source, {
+        type: "model",
+        name: "File",
+        properties: [
+          {
+            type: "field",
+            name: "id",
+            fieldType: "Int",
+            attributes: [
+              { type: "attribute", kind: "field", name: "id", group: "" },
+              {
+                type: "attribute",
+                kind: "field",
+                name: "default",
+                group: "",
+                args: [{ type: "attributeArgument", value: "autoincrement()" }],
+              },
+            ],
+          },
+        ],
+      });
+    },
   })
   .build();
