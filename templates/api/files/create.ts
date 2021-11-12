@@ -1,4 +1,4 @@
-import { BlitzApiRequest, BlitzApiResponse } from "blitz"
+import { BlitzApiRequest, BlitzApiResponse, getSession } from "blitz"
 import db from "db"
 import Busboy from "busboy"
 import path from "path"
@@ -23,6 +23,14 @@ const hashIt = (file: NodeJS.ReadableStream) => {
 }
 
 export default async function handler(req: BlitzApiRequest, res: BlitzApiResponse) {
+  const session = await getSession(req, res)
+
+  if (!session.$isAuthorized()) {
+    res.writeHead(401, { Connection: "close" })
+    res.end("Must be logged in to upload a file")
+    return Promise.resolve()
+  }
+
   if (!req.headers["content-type"]?.includes("multipart/form-data")) {
     res.writeHead(406, { Connection: "close" })
     res.end("must be multipart/form-data")

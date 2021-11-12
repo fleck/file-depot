@@ -1,6 +1,7 @@
 import { useCallback, useRef, useState } from "react"
 import { File as FileModel } from "db"
 import { useDropzone } from "react-dropzone"
+import { getAntiCSRFToken } from "blitz"
 
 export const useFileUpload = () => {
   const fileInput = useRef<HTMLInputElement>(null)
@@ -30,6 +31,8 @@ export const useFileUpload = () => {
       xhr.responseType = "json"
 
       xhr.open("POST", "/api/files/create")
+
+      xhr.setRequestHeader("anti-csrf", getAntiCSRFToken())
 
       xhr.upload.onprogress = (event) => {
         const percentages = +((event.loaded / event.total) * 100).toFixed(2)

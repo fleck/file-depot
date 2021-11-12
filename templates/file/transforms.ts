@@ -1,7 +1,7 @@
 import sharp from "sharp"
 
 export const transformFunctions = {
-  searchResult: (file: NodeJS.ReadableStream) => file.pipe(sharp().resize({ width: 600 })),
+  rotate: (file: NodeJS.ReadableStream) => file.pipe(sharp().rotate()),
 }
 
 export type Transform = keyof typeof transformFunctions
