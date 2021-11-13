@@ -45,3 +45,17 @@ const Home: BlitzPage = () => {
         {file && <img src={urlFor(file, "rotate")} />}
         // ...
 ```
+
+## Associating an image/file to an existing model
+
+```ts
+model Item {
+  id                         Int       @id @default(autoincrement())
+  featured                   Boolean   @default(false)
+  name                       String?   @db.VarChar
+  url                        String?   @db.VarChar
+  text                       String?
+  fileId                     Int?
+  image                      File?     @relation(fields: [fileId], references: [id])
+}
+```
