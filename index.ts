@@ -169,7 +169,7 @@ export default RecipeBuilder()
     explanation: ``,
     singleFileSearch: ".gitignore",
     transformPlain(gitignore: string) {
-      return gitignore + "\n" + "/storage/";
+      return gitignore + "\n" + "/storage/" + "\n";
     },
   })
   .build();
