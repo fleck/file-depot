@@ -44,7 +44,7 @@ export default RecipeBuilder()
     templateValues: {},
   })
   .addTransformFilesStep({
-    stepId: "addSchema",
+    stepId: "updateSchema",
     stepName: "create File model",
     explanation: ``,
     singleFileSearch: paths.prismaSchema(),
@@ -161,6 +161,15 @@ export default RecipeBuilder()
           },
         ],
       });
+    },
+  })
+  .addTransformFilesStep({
+    stepId: "ignoreStorage",
+    stepName: "add temp storage directory to gitignore",
+    explanation: ``,
+    singleFileSearch: ".gitignore",
+    transformPlain(gitignore: string) {
+      return gitignore + "\n" + "/storage/";
     },
   })
   .build();
