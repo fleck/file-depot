@@ -2,7 +2,20 @@
 
 ## bug with recipe
 
-note that
+note that there appears to be a bug with recipes (or maybe I'm doing something wrong).
+These files get created as:
+
+```
+app/api/files/[key]/[filename].ts/[filename].ts
+app/api/files/[key]/variant/[variation]/[filename].ts/[filename].ts
+```
+
+when the paths should be:
+
+```
+app/api/files/[key]/[filename].ts
+app/api/files/[key]/variant/[variation]/[filename].ts
+```
 
 ## hook and urlFor
 
