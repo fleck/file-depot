@@ -8,7 +8,7 @@ blitz install fleck/file-depot
 
 ## bug with recipe
 
-note that there appears to be a bug with recipes (or maybe I'm doing something wrong).
+there appears to be a bug with recipes (or maybe I'm doing something wrong).
 These files get created as:
 
 ```
