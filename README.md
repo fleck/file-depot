@@ -1,5 +1,11 @@
 # File Depot ![Warehouse Rack](./rack.png)
 
+## install
+
+```bash
+blitz install fleck/file-depot
+```
+
 ## bug with recipe
 
 note that there appears to be a bug with recipes (or maybe I'm doing something wrong).
